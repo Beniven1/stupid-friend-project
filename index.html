@@ -84,30 +84,3 @@
     </script>
 </body>
 </html>
-```
-
-Server-side (Node.js) using Express framework:
-```javascript
-const express = require('express');
-const multer = require('multer');
-
-const app = express();
-const upload = multer({ dest: 'uploads/' });
-
-app.post('/upload-video', upload.single('video'), (req, res) => {
-    // Handle the uploaded video file here
-    // You can save it to a specific location, process it, or do any other necessary operations
-
-    res.sendStatus(200); // Send a success response
-});
-
-app.post('/upload-photo', upload.single('photo'), (req, res) => {
-    // Handle the uploaded photo file here
-    // You can save it to a specific location, process it, or do any other necessary operations
-
-    res.sendStatus(200); // Send a success response
-});
-
-app.listen(3000, () => {
-    console.log('Server started on port 3000');
-});
